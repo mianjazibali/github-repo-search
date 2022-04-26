@@ -1,0 +1,16 @@
+.profile-nav-link {
+    color: #79818B;
+    cursor: pointer;
+    z-index: 1;
+    transition: none;
+
+    &.selected {
+        color: #24292F;
+        border-bottom: 2px solid #FD8C73;
+    }
+
+    &:hover:not(.selected) {
+        color: #79818B;
+        border-bottom: 2px solid #AFB8C133;
+    }
+}
