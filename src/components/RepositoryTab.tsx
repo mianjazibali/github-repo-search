@@ -15,10 +15,7 @@ const RepositoryTab = () => {
     useEffect(() => {
         fetch(`https://api.github.com/users/${username}/repos`)
             .then(response => response.json())
-            .then(repos => {
-                console.log('$$$response repos', repos);
-                dispatch(setRepos(repos))
-            })
+            .then(repos => dispatch(setRepos(repos)))
             .catch(error => console.log(error));
     }, [username]);
 

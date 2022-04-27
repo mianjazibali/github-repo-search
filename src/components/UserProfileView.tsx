@@ -7,8 +7,9 @@ import { RootState } from '../store';
 import { useEffect } from 'react';
 import { setUser } from '../features/user/userSlice';
 import { useParams } from 'react-router-dom';
+import NotFound from './NotFound';
 
-const UserProfile = () => {
+const UserProfileView = () => {
     const { username } = useParams();
 
     const user = useSelector((state : RootState) => state.user);
@@ -23,31 +24,37 @@ const UserProfile = () => {
 
     return (
         <div className='container-fluid my-5'>
-            <div className='row ps-5'>
-                <ProfileNav repositoryCount={user.public_repos} starCount={user.public_gists} />
-            </div>
+            {user.login ? (
+                <>
+                    <div className='row ps-5'>
+                        <ProfileNav repositoryCount={user.public_repos} starCount={user.public_gists} />
+                    </div>
 
-            <div className='row d-flex justify-content-center'>
-                <div className='col-md-3' style={{marginTop: '-30px'}}>
-                    <ProfileInfo
-                        photo={user.avatar_url}
-                        fullname={user.name}
-                        username={user.login}
-                        bio={user.bio}
-                        followers={user.followers}
-                        following={user.following}
-                        company={user.company}
-                        location={user.location}
-                        email={user.email}
-                    />
-                </div>
+                    <div className='row d-flex justify-content-center'>
+                        <div className='col-md-3' style={{marginTop: '-30px'}}>
+                            <ProfileInfo
+                                photo={user.avatar_url}
+                                fullname={user.name}
+                                username={user.login}
+                                bio={user.bio}
+                                followers={user.followers}
+                                following={user.following}
+                                company={user.company}
+                                location={user.location}
+                                email={user.email}
+                            />
+                        </div>
 
-                <div className='col-md-8'>
-                    <RepositoryTab />
-                </div>
-            </div>
+                        <div className='col-md-8'>
+                            <RepositoryTab />
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <NotFound />
+            )}
         </div>
     )
 };
 
-export default UserProfile;
+export default UserProfileView;
