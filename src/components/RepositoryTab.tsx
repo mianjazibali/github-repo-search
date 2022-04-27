@@ -1,28 +1,31 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { setRepos } from '../features/repos/reposSlice';
+import { RootState } from '../store';
 import RepositoryList from './RepositoryList';
 import RepositorySearch from './RepositorySearch';
 
-const repositories = [
-    {
-        name: 'github-repo-search',
-        type: 'Public',
-        description: 'An app built to have better understanding of React framework. Live here at https://mianjazibali.github.io/react-weather-app/',
-        language: 'TypeScript',
-        updatedAt: 'Updated Yesterday'
-    },
-    {
-        name: 'react-weather-app',
-        type: 'Public',
-        description: 'An app built to have better understanding of React framework. Live here at https://mianjazibali.github.io/react-weather-app/',
-        language: 'JavaScript',
-        updatedAt: 'Updated on Feb 23'
-    }
-];
-
 const RepositoryTab = () => {
+    const { username } = useParams();
+
+    const repos = useSelector((state : RootState) => state.repos.repos);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        fetch(`https://api.github.com/users/${username}/repos`)
+            .then(response => response.json())
+            .then(repos => {
+                console.log('$$$response repos', repos);
+                dispatch(setRepos(repos))
+            })
+            .catch(error => console.log(error));
+    }, [username]);
+
     return (
         <>
             <RepositorySearch />
-            <RepositoryList repositories={repositories} />
+            <RepositoryList repos={repos} />
         </>
     );
 };

@@ -1,20 +1,20 @@
 import RepositoryItem from './RepositoryItem';
 
-import { IRepositoryList } from './../types';
+import { IReposState } from './../types';
 
-const RepositoryList = (props : IRepositoryList) => {
-    const { repositories } = props;
+const RepositoryList = (props : IReposState) => {
+    const { repos } = props;
 
     return (
         <ul className='repository-list ps-0'>
-            {repositories.map(({name, type, description, language, updatedAt}, index) => (
+            {repos.map((repo, index) => (
                 <RepositoryItem
                     key={index}
-                    name={name}
-                    type={type}
-                    description={description}
-                    language={language}
-                    updatedAt={updatedAt}
+                    name={repo.name}
+                    visibility={repo.visibility}
+                    description={repo.description}
+                    language={repo.language}
+                    updatedAt={repo.updated_at}
                 />
             ))}
         </ul>

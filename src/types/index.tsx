@@ -26,14 +26,10 @@ export interface IProfileNav {
 
 export interface IRepositoryItem {
     name: string,
-    type: string,
+    visibility: string,
     description: string,
     language: string,
     updatedAt: string
-}
-
-export interface IRepositoryList {
-    repositories: IRepositoryItem[]
 }
 
 export interface IDropdownItem {
@@ -64,4 +60,16 @@ export interface IUserState {
     company: string,
     location: string,
     email: string
+};
+
+export interface IRepoState {
+    name: string,
+    visibility: string,
+    description: string,
+    language: string,
+    updated_at: string
+};
+
+export interface IReposState {
+    repos: IRepoState[]
 };
