@@ -1,20 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface UserState {
-    public_repos: number,
-    public_gists: number,
-    avatar_url: string,
-    name: string,
-    login: string,
-    bio: string,
-    followers: number,
-    following: number,
-    company: string,
-    location: string,
-    email: string
-};
+import { IUserState } from './../../types';
 
-const initialState: UserState = {
+const initialState: IUserState = {
     public_repos: 0,
     public_gists: 0,
     avatar_url: '',
@@ -32,7 +20,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action : PayloadAction<UserState>) => {
+    setUser: (state, action : PayloadAction<IUserState>) => {
       return action.payload;
     }
   },

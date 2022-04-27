@@ -1,21 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUserGroup, faBuilding, faLocationDot, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
+import { IProfileInfo } from './../types';
 import './ProfileInfo.scss';
 
-interface ProfileInfoInterface {
-    photo: string,
-    fullname: string,
-    username: string,
-    bio: string,
-    followers: number,
-    following: number,
-    company: string,
-    location: string,
-    email: string
-};
-
-const ProfileInfo = (props : ProfileInfoInterface) => {
+const ProfileInfo = (props : IProfileInfo) => {
     const {photo, fullname, username, bio, followers, following, company, location, email} = props;
 
     return (

@@ -1,15 +1,9 @@
 import { Badge } from 'react-bootstrap';
+
+import { IRepositoryItem } from './../types';
 import './RepositoryItem.scss';
 
-export interface RepositoryItemInterface {
-    name: string,
-    type: string,
-    description: string,
-    language: string,
-    updatedAt: string
-}
-
-const RepositoryItem = (props : RepositoryItemInterface) => {
+const RepositoryItem = (props : IRepositoryItem) => {
     const {name, type, description, language, updatedAt} = props;
 
     return (

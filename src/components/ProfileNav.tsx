@@ -1,14 +1,10 @@
 import { Nav } from 'react-bootstrap';
 import {faBookOpen, faBookBookmark, faTable, faCube, faStar} from '@fortawesome/free-solid-svg-icons';
 
+import { IProfileNav } from './../types';
 import ProfileNavLink from './ProfileNavLink';
 
-interface ProfileNavInterface {
-    repositoryCount: number,
-    starCount: number
-}
-
-const ProfileNav = (props : ProfileNavInterface) => {
+const ProfileNav = (props : IProfileNav) => {
     const {repositoryCount, starCount} = props;
 
     return (

@@ -1,10 +1,8 @@
-import RepositoryItem, { RepositoryItemInterface } from './RepositoryItem';
+import RepositoryItem from './RepositoryItem';
 
-interface RepositoryListInterface {
-    repositories: RepositoryItemInterface[]
-}
+import { IRepositoryList } from './../types';
 
-const RepositoryList = (props : RepositoryListInterface) => {
+const RepositoryList = (props : IRepositoryList) => {
     const { repositories } = props;
 
     return (

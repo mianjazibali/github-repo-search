@@ -1,17 +1,10 @@
 import { Badge, NavLink } from 'react-bootstrap';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { INavLink } from './../types';
 import './ProfileNavLink.scss';
 
-interface NavLinkInterface {
-    icon: IconDefinition,
-    title: string,
-    count?: number,
-    active?: boolean
-}
-
-const ProfileNavLink = (props : NavLinkInterface) => {
+const ProfileNavLink = (props : INavLink) => {
     const {icon, title, count, active} = props;
     const activeClass : string = active ? 'selected' : '';
 
