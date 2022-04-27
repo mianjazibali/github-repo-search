@@ -18,7 +18,7 @@ const ProfileNavLink = (props : NavLinkInterface) => {
     return (
         <NavLink className={`profile-nav-link h6 p-3 ${activeClass}`}>
             <FontAwesomeIcon className='mx-1' icon={icon} />{title}
-            {count && <Badge className='mx-1' pill bg='secondary'>{count}</Badge>}
+            <Badge className='mx-1' pill bg='secondary'>{count}</Badge>
         </NavLink>
     );
 };
