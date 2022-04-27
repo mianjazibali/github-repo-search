@@ -1,15 +1,11 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import { Button, FormControl } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
-import { RootState } from '../store';
-import { setSearch } from './../features/search/searchSlice';
-
 const UserSearch = () => {
-    const search = useSelector((state : RootState) => state.search.value);
-    const dispatch = useDispatch();
+    const [search, setSearch] = useState<string>('');
     const navigate = useNavigate();
 
     return (
@@ -18,7 +14,7 @@ const UserSearch = () => {
                 className='shadow-none d-inline w-auto float-start me-3'
                 placeholder='Find a user...'
                 value={search}
-                onChange={evt => dispatch(setSearch(evt.target.value))}
+                onChange={evt => setSearch(evt.target.value)}
             />
 
             <Button variant='success' onClick={() => navigate(search)}>
