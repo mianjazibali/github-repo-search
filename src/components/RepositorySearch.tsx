@@ -4,12 +4,21 @@ import { FormControl, Button } from 'react-bootstrap';
 
 import Dropdown from './Dropdown';
 
-const RepositorySearch = () => {
+interface RepositorySearch {
+    search: string,
+    onChange: Function
+};
+
+const RepositorySearch = (props : RepositorySearch) => {
+    const {search, onChange} = props;
+
     return (
         <div className='repository-search border-bottom border-light py-3'>
             <FormControl
                 className='shadow-none w-50 float-start me-3'
                 placeholder='Find a repository...'
+                value={search}
+                onChange={(evt) => onChange(evt.target.value)}
             />
 
             <Dropdown
@@ -31,7 +40,7 @@ const RepositorySearch = () => {
             />
 
             <Button variant='success'>
-                <FontAwesomeIcon icon={faBookBookmark} />
+                <FontAwesomeIcon className="me-2" icon={faBookBookmark} />
                 New
             </Button>
         </div>

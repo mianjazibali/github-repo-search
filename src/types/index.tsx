@@ -32,6 +32,11 @@ export interface IRepositoryItem {
     updatedAt: string
 }
 
+export interface IRepositoryList {
+    repos: IRepoState[],
+    search: string
+}
+
 export interface IDropdownItem {
     text: string,
     value: string | number

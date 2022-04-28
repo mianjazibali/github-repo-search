@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { setRepos } from '../features/repos/reposSlice';
@@ -9,6 +9,7 @@ import RepositorySearch from './RepositorySearch';
 const RepositoryTab = () => {
     const { username } = useParams();
 
+    const [search, setSearch] = useState('');
     const repos = useSelector((state : RootState) => state.repos.repos);
     const dispatch = useDispatch();
 
@@ -21,8 +22,8 @@ const RepositoryTab = () => {
 
     return (
         <>
-            <RepositorySearch />
-            <RepositoryList repos={repos} />
+            <RepositorySearch search={search} onChange={setSearch} />
+            <RepositoryList search={search} repos={repos} />
         </>
     );
 };
