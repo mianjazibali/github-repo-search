@@ -78,3 +78,7 @@ export interface IRepoState {
 export interface IReposState {
     repos: IRepoState[]
 };
+
+export interface ILoadingState {
+    value: boolean
+};

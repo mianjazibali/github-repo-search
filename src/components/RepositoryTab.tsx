@@ -5,6 +5,7 @@ import { setRepos } from '../features/repos/reposSlice';
 import { RootState } from '../store';
 import RepositoryList from './RepositoryList';
 import RepositorySearch from './RepositorySearch';
+import UseLoading from './../HOC/useLoading';
 
 const RepositoryTab = () => {
     const { username } = useParams();
@@ -28,4 +29,4 @@ const RepositoryTab = () => {
     );
 };
 
-export default RepositoryTab;
+export default UseLoading(RepositoryTab);
