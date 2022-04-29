@@ -1,5 +1,5 @@
 import { Badge } from 'react-bootstrap';
-import { formatISODateTime } from '../helper/datetime';
+import { formatISODateTime } from '../helpers/datetimeHelper';
 
 import { IRepositoryItem } from './../types';
 import './RepositoryItem.scss';

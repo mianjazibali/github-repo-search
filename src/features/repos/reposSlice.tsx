@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IReposState } from './../../types';
+import { IRepoState, IReposState } from './../../types';
 
 const initialState: IReposState = {
     repos: []
@@ -10,7 +10,7 @@ export const reposSlice = createSlice({
   name: 'repos',
   initialState,
   reducers: {
-    setRepos: (state, action : PayloadAction<[]>) => {
+    setRepos: (state, action : PayloadAction<IRepoState[]>) => {
       state.repos = action.payload;
     }
   },

@@ -12,7 +12,7 @@ const UserSearch = () => {
         <div className='d-flex justify-content-center position-fixed top-50 left-50 start-50 translate-middle'>
             <FormControl
                 className='shadow-none d-inline w-auto float-start me-3'
-                placeholder='Find a user...'
+                placeholder='Find a user'
                 value={search}
                 onChange={evt => setSearch(evt.target.value)}
             />

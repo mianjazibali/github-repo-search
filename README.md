@@ -16,6 +16,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### FUTURE IMPROVEMENTS
 
+- Move constants to its separate directory and file
+- Setups eslint and prettify in before commit hook
 - Use redux thunk for async API calls
 - Handle error more effectively
 - Allow user to switch between different tabs available on user profile page.

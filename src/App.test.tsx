@@ -1,9 +1,12 @@
-import React from 'react';
+/**
+* @jest-environment jsdom
+*/
+
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('should render app successfully', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  const linkElement = screen.getByPlaceholderText('Find a user');
   expect(linkElement).toBeInTheDocument();
 });

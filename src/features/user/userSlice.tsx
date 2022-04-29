@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IUserState } from './../../types';
 
-const initialState: IUserState = {
+export const initialState: IUserState = {
     public_repos: 0,
     public_gists: 0,
     avatar_url: '',
