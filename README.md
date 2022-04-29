@@ -4,7 +4,7 @@ This project is created as a coding challenge to build github user repositories 
 ### HOW TO RUN
 
 #### LIVE
-Open (https://practice-grs.netlify.app/mianjazibali) to view it in the browser.
+Open (https://practice-grs.netlify.app) to view it in the browser.
 
 #### LOCALLY
 In the project directory, please run commands in the following order:
